@@ -160,19 +160,22 @@
 
       <!-- JOBS LIST -->
       <div class="d-md-none">
+
+        {{#jobs}}
         <div class="card mb-3">
           <div class="card-body">
-            <h5 class="card-title">Frontend Developer</h5>
+            <h5 class="card-title"> <a href="/jobs/{{id}}">{{title}}</a></h5>
             <h6 class="card-subtitle my-1 text-body-secondary">
-              Bengaluru, India • ₹ 12,00,000
+              {{location}} * {{salary}}
             </h6>
             <small class="card-text text-body-secondary">
-              Posted Mar 3, 2023
+              Posted {{posted}} 
             </small>
           </div>
         </div>
+        {{/jobs}}
 
-        <div class="card my-4">
+        <!-- <div class="card my-4">
           <div class="card-body">
             <h5 class="card-title">Full Stack Developer</h5>
             <h6 class="card-subtitle my-1 text-body-secondary">
@@ -207,10 +210,10 @@
             </small>
           </div>
         </div> 
-      </div>
+      </div> -->
 
        <!-- JOBS TABLE -->
-      <div class="offset-lg-2 col-lg-8  ">
+      <div class="offset-lg-2 col-lg-8">
         <table class="d-none d-md-table table table-striped table-bordered">
           <tr class="table-primary text-center">
             <th rowspan="2">Job Title</th>
@@ -218,7 +221,16 @@
             <th rowspan="2">Salary</th>
             <th rowspan="2">Posted On</th>
           </tr>
-          <tr class="table-primary text-center">
+
+          {{#jobs}}
+          <tr>
+            <td><a href="/jobs {{id}}">{{title}}</a></td>
+            <td>{{location}}</td>
+            <td>{{salary}}</td>
+            <td>{{posted}}</td>
+          </tr>
+          {{/#jobs}}
+          <!-- <tr class="table-primary text-center">
             <th>City</th>
             <th>Country</th>
           </tr>
@@ -251,7 +263,7 @@
             <td class="remote" colspan="2">Remote</td>
             <td>$80,000</td>
             <td>Sep 19, 2022</td>
-          </tr>
+          </tr> -->
         </table>
       </div>
      
@@ -375,6 +387,8 @@
           </button>
         </form>
       </div>
+
+
 
       <!-- FOOTER -->
       <div class="container">
