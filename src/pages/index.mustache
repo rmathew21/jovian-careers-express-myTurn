@@ -174,7 +174,7 @@
           </div>
         </div>
         {{/jobs}}
-
+        </div>
         <!-- <div class="card my-4">
           <div class="card-body">
             <h5 class="card-title">Full Stack Developer</h5>
@@ -224,12 +224,12 @@
 
           {{#jobs}}
           <tr>
-            <td><a href="/jobs {{id}}">{{title}}</a></td>
+            <td><a href="/jobs{{id}}">{{title}}</a></td>
             <td>{{location}}</td>
             <td>{{salary}}</td>
             <td>{{posted}}</td>
           </tr>
-          {{/#jobs}}
+          {{/jobs}}
           <!-- <tr class="table-primary text-center">
             <th>City</th>
             <th>Country</th>
@@ -267,6 +267,7 @@
         </table>
       </div>
      
+    </div>
       <!-- FOOTER -->
       <div class="container">
         <footer class="py-3 my-4">
