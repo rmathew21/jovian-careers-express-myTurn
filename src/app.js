@@ -1,10 +1,16 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const JOBS = require('./jobs');
 const mustacheExpress = require('mustache-express');
+const nodemailer = require('nodemailer');
+const bodyParser = require('body-parser');
 
 
 const app = express();
+
+//configuire bodyParser
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
