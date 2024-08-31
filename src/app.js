@@ -44,8 +44,15 @@ const transporter = nodemailer.createTransport({
 
 // To allow application submission
 app.post('/jobs/:id/apply', (req, res) => {
+    const { name, email, phone, dob, position, coverletter } = req.body; 
+    const id = req.params.id;
+    const matchedJob = JOBS.find(job => job.id.toString() === id);
+
+    console.log('req.body', req.body);
+    console.log('matchedJob', matchedJob);
+
     res.send("Got the application!");
-})
+});
 
 const port = process.env.PORT || 3000;
 
