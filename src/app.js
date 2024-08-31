@@ -27,8 +27,20 @@ app.get('/', (req, res) => {
 app.get('/jobs:id', (req, res) => {
     const id = req.params.id;
     const matchedJob = JOBS.find(job => job.id.toString() === id);
+    console.log('req.params', req.params);
+    console.log('matchedJob', matchedJob);
     res.render('job', { job: matchedJob });
 })
+
+const transporter = nodemailer.createTransport({ 
+    host: 'mail.gmx.com',
+    port: 587,
+    secure: false,
+    auth: { 
+        user: process.env.EMAIL_ID, 
+        pass: process.env.EMAIL_PASSWORD,
+    }
+});
 
 // To allow application submission
 app.post('/jobs/:id/apply', (req, res) => {
