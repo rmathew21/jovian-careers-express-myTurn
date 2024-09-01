@@ -52,6 +52,29 @@ app.post('/jobs/:id/apply', (req, res) => {
     console.log('matchedJob', matchedJob);
 
     res.send("Got the application!");
+
+    const mailOptions = {
+        from: process.env.EMAIL_ID,
+        to: process.env.EMAIL_ID,
+        subject: `New Application for ${matchedJob.title}`,
+        html: `
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Date of Birth:</strong> ${dob}</p>
+            <p><strong>Cover Letter:</strong> ${coverletter}</p>
+            `
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error(error);
+            res.status(500).send('Error sending email');
+        } else {
+            console.log('Email sent:', info.response);
+            res.status(200).render('applied');
+        }
+    });
 });
 
 const port = process.env.PORT || 3000;
