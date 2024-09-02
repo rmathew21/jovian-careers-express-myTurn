@@ -51,7 +51,7 @@ app.post('/jobs/:id/apply', (req, res) => {
     console.log('req.body', req.body);
     console.log('matchedJob', matchedJob);
 
-    res.send("Got the application!");
+    // res.send("Got the application!");
 
     const mailOptions = {
         from: process.env.EMAIL_ID,
