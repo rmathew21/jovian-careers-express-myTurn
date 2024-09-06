@@ -22,7 +22,7 @@ const JOBS = [
     },
     {
         id: 4,
-        title: 'ML Engineer',
+        title: 'Machine Learning Engineer',
         location: 'Remote',
         salary: '$80,000',
         posted: 'Sep 19, 2022'
