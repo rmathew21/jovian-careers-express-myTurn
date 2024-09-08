@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 // route for job.mustache
-app.get('/jobs:id', (req, res) => {
+app.get('/jobs/:id', (req, res) => {
     const id = req.params.id;
     const matchedJob = JOBS.find(job => job.id.toString() === id);
     console.log('req.params', req.params);
@@ -44,7 +44,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // To allow application submission
-app.post('/jobs:id/apply', (req, res) => {
+app.post('/jobs/:id/apply', (req, res) => {
     const { name, email, phone, dob, coverletter } = req.body; 
     const id = req.params.id;
     const matchedJob = JOBS.find(job => job.id.toString() === id);
