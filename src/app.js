@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 // route for job.mustache
-app.get('/jobs/:id', (req, res) => {
+app.get('/jobs:id', (req, res) => {
     const id = req.params.id;
     const matchedJob = JOBS.find(job => job.id.toString() === id);
     console.log('req.params', req.params);
@@ -35,7 +35,7 @@ app.get('/jobs/:id', (req, res) => {
 
 const transporter = nodemailer.createTransport({ 
     host: 'mail.gmx.com',
-    port: 587,
+    port: 587, // 587 or 465
     secure: false,
     auth: { 
         user: process.env.EMAIL_ID, 
